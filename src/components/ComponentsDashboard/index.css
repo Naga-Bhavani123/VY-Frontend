@@ -1,0 +1,120 @@
+:root {
+  --vy-green-dark: #166534;
+  --vy-green-main: #22c55e;
+  --vy-green-light: #dcfce7;
+  --vy-text-main: #0f172a;
+  --vy-text-muted: #6b7280;
+}
+
+
+/* Dashboard container */
+.vy-dashboard {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.vy-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.vy-dashboard-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vy-text-main);
+}
+
+.vy-dashboard-subtitle {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: var(--vy-text-muted);
+}
+
+/* Section title */
+.vy-section-title {
+  margin: 10px 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vy-green-dark);
+}
+
+/* Cards grid */
+.vy-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+/* Single card */
+.vy-card {
+  background-color: #ffffff;
+  border-radius: 14px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15);
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.vy-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--vy-green-main);
+  box-shadow: 0 10px 20px rgba(22, 163, 74, 0.28);
+}
+
+/* Card icon */
+.vy-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: var(--vy-green-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+/* Card text */
+.vy-card-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vy-text-main);
+}
+
+.vy-card-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--vy-text-muted);
+}
+
+/* Admin cards */
+.vy-admin-section {
+  margin-top: 24px;
+}
+
+.vy-card-admin {
+  border-left: 4px solid var(--vy-green-main);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vy-dashboard-title {
+    font-size: 20px;
+  }
+
+  .homeCon {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+}

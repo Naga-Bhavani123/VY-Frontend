@@ -1,0 +1,283 @@
+:root {
+  --vy-green-dark: #166534;
+  --vy-green-main: #22c55e;
+  --vy-green-light: #dcfce7;
+  --vy-text-main: #0f172a;
+  --vy-text-muted: #6b7280;
+  --vy-error: #ef4444;
+}
+
+/* MAIN NAVBAR */
+.vy-navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 64px;
+  padding: 0 16px 0 24px;
+
+  background-image: linear-gradient(
+    to right,
+    var(--vy-green-light),
+    var(--vy-green-dark),
+    var(--vy-green-main)
+  );
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  color: white;
+  z-index: 100;
+}
+
+/* LEFT SIDE */
+.vy-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vy-nav-logo-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: var(--vy-green-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vy-nav-logo-text {
+  font-size: 18px;
+  font-weight: 700;
+  color: white;
+}
+
+/* CENTER TOP BAR (DESKTOP) */
+.vy-top-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* RIGHT SIDE */
+.vy-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: relative; /* for notification panel */
+}
+
+/* ===========================
+   NOTIFICATION BELL + PANEL
+   =========================== */
+
+.vy-notification-wrapper {
+  position: relative;
+}
+
+.vy-notification-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background-color: #14532d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.vy-notification-icon:hover {
+  background-color: #166534;
+}
+
+/* Panel that opens when clicking bell */
+.vy-notification-panel {
+  position: absolute;
+  top: 46px;
+  right: 0;
+  width: 280px;
+  background-color: #ffffff;
+  color: var(--vy-text-main);
+  border-radius: 10px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+  padding: 10px 12px;
+  z-index: 200;
+}
+
+.vy-notification-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--vy-green-dark);
+}
+
+.vy-notification-close {
+  border: none;
+  background: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--vy-text-muted);
+}
+
+.vy-notification-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.vy-notification-item {
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.vy-notification-item:last-child {
+  border-bottom: none;
+}
+
+/* =====================
+   PROFILE + LOGOUT
+   ===================== */
+
+.vy-profile-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--vy-green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.vy-profile-icon:hover {
+  background-color: #15803d;
+}
+
+.vy-logout-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ffffff;
+  color: var(--vy-green-dark);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.vy-logout-btn:hover {
+  background-color: var(--vy-green-light);
+}
+
+/* =====================
+   HAMBURGER (MOBILE)
+   ===================== */
+
+.vy-hamburger {
+  display: none; /* by default hidden on desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: none;
+  background-color: rgba(22, 101, 52, 0.9);
+  cursor: pointer;
+}
+
+.vy-hamburger-line {
+  width: 18px;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+/* =====================
+   MOBILE MENU DROPDOWN
+   ===================== */
+
+.vy-mobile-menu {
+  position: fixed;
+  top: 64px;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+  z-index: 90;
+  padding: 10px 16px 16px;
+}
+
+.vy-mobile-header {
+  font-size: 13px;
+  margin-left: 0px;
+  color: var(--vy-text-main);
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.vy-mobile-item {
+  width: 100%;
+  text-align: left;
+  padding: 10px 8px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background-color: #f9fffb;
+  color: #15803d;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.vy-mobile-item:hover {
+  background-color: var(--vy-green-light);
+  border-color: var(--vy-green-main);
+}
+
+.vy-mobile-notifications {
+  margin-top: 8px;
+  padding: 8px;
+  background-color: #f9fffb;
+  color: #0f172a;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.vy-mobile-notifications-title {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+
+
+@media (max-width: 768px) {
+  .vy-top-bar {
+    display: none; /* hide center greeting in nav */
+  }
+
+  .vy-nav-right {
+    display: none; /* hide icons on the right */
+  }
+
+  .vy-hamburger {
+    display: flex; /* show hamburger on mobile */
+  }
+}

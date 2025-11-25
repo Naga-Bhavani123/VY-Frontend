@@ -1,0 +1,48 @@
+.homeCon {
+  background-color: #dcfce7;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  /* we want children to take full width */
+  align-items: stretch;
+
+  padding: 80px 50px 50px; /* space for navbar + side padding */
+}
+
+/* wrapper for the Check in / Check out / Done button */
+.attendanceButtom {
+  display: flex;
+  justify-content: flex-end;  /* 👉 pushes button to the right */
+  margin-bottom: 24px;        /* space below button */
+}
+
+/* your existing button styles can stay */
+.attendanceButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.check_in {
+  background-color: transparent;
+  border: 2px solid #22c55e;
+  color: #22c55e;
+}
+
+.check_out {
+  background-color: transparent;
+  border: 2px solid #1c6336;
+  color: #1c6336;
+}
+
+.done {
+  background-color: #1c6336;
+  border: 2px solid #1c6336;
+  color: white;
+}

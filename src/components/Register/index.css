@@ -1,0 +1,292 @@
+:root {
+  --vy-green-dark: #166534;
+  --vy-green-main: #22c55e;
+  --vy-green-light: #dcfce7;
+  --vy-text-main: #0f172a;
+  --vy-text-muted: #6b7280;
+  --vy-error: #ef4444;
+}
+
+/* MAIN WRAPPER – TWO PARTS (NORMAL BACKGROUND) */
+.vy-auth-wrapper {
+  min-height: 100vh;
+  width: 100vw;
+  
+  display: flex;
+  background-color: #e9ffe9; /* Simple light green */
+  font-family: system-ui, sans-serif;
+}
+
+/* LEFT SIDE */
+.vy-auth-left {
+  flex: 1.2;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+   width: 70%;
+  padding: 32px;
+}
+
+.vy-auth-left-content {
+  width: 70%;
+  color: var(--vy-text-main);
+}
+
+/* Bouncing logo - animation REMOVED */
+.vy-logo-bounce {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.vy-logo-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 999px;
+  background: linear-gradient(
+    145deg,
+    var(--vy-green-main),
+    var(--vy-green-dark)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 30px rgba(34, 197, 94, 0.5);
+}
+
+.vy-logo-text {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.vy-left-title {
+  margin: 0 0 6px;
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--vy-text-main);
+}
+
+.vy-left-subtitle {
+  margin: 4px 0 14px;
+  font-size: 14px;
+  color: var(--vy-text-muted);
+}
+
+.vy-left-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 16px;
+  font-size: 14px;
+  color: var(--vy-text-main);
+}
+
+.vy-left-list li {
+  margin-bottom: 6px;
+}
+
+/* Note box */
+.vy-left-note {
+  font-size: 13px;
+  background-color: #ecfdf5;
+  border-radius: 10px;
+  padding: 12px 14px;
+  border-left: 4px solid var(--vy-green-main);
+  color: var(--vy-text-main);
+}
+
+.vy-left-note span {
+  color: var(--vy-green-dark);
+  font-weight: 600;
+}
+
+/* RIGHT SIDE */
+.vy-auth-right {
+  flex: 1;
+  display: flex;
+   width: 30%;
+
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+/* Card on right */
+.vy-register-card {
+  background: #ffffff;
+  padding: 28px 24px 24px;
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(15, 118, 110, 0.25);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.vy-right-title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--vy-text-main);
+}
+
+.vy-right-subtitle {
+  margin: 4px 0 18px;
+  font-size: 13px;
+  color: var(--vy-text-muted);
+}
+
+/* Message bar */
+.vy-message-bar {
+  padding: 9px 12px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.vy-message-success {
+  background-color: var(--vy-green-light);
+  color: var(--vy-green-dark);
+  border: 1px solid var(--vy-green-main);
+}
+
+.vy-message-error {
+  background-color: #fee2e2;
+  color: var(--vy-error);
+  border: 1px solid #fecaca;
+}
+
+/* Form */
+.vy-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vy-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vy-form-group label {
+  font-size: 13px;
+  color: var(--vy-text-muted);
+  font-weight: 500;
+}
+
+.vy-form-group input {
+  padding: 10px 11px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background-color: #f9fffb;
+  color: #0f172a;
+  font-weight: 500;
+  font-size: 14px;
+  outline: none;
+}
+
+.vy-form-group input:focus {
+  border-color: var(--vy-green-main);
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+  background: #f9fffb;
+}
+
+/* Button */
+.vy-register-btn {
+  margin-top: 4px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--vy-green-main);
+  color: white;
+  cursor: pointer;
+}
+
+.vy-register-btn:hover {
+  background-color: var(--vy-green-dark);
+}
+
+/* Spinner */
+.vy-btn-loader {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.vy-spinner {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-top-color: white;
+}
+
+/* Login CTA */
+.vy-right-login-text {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--vy-text-muted);
+  text-align: center;
+}
+
+.vy-inline-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--vy-green-main);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.vy-login-cta {
+  margin-top: 14px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff;
+  color: var(--vy-green-dark);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(22, 163, 74, 0.45);
+}
+
+.vy-login-cta:hover {
+  background-color: var(--vy-green-light);
+}
+
+.vy-login-arrow {
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .vy-auth-wrapper {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .vy-auth-left,
+  .vy-auth-right {
+    flex: none;
+    width: 100%;
+    padding: 16px 0;
+  }
+
+  .vy-auth-left-content {
+    text-align: center;
+  }
+
+  .vy-left-note {
+    text-align: left;
+  }
+}
+
+
+label{
+   text-align: left;
+}
