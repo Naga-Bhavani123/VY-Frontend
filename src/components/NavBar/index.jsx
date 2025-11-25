@@ -41,7 +41,7 @@ function Navbar() {
       <nav className="vy-navbar">
         {/* LEFT */}
         <div className="vy-nav-left">
-            <Link to = "/dashboard">
+            <Link to = "/">
           <div className="vy-nav-logo-circle">
             <span className="vy-nav-logo-text">VY</span>
           </div>

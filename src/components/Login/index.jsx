@@ -43,7 +43,7 @@ function LoginPage() {
       setMessage("Login successful!");
       setMessageType("success");
       setTimeout(() => {
-        navigate("/dashboard"); // redirect after login
+        navigate("/"); // redirect after login
       }, 1500);
     } catch (err) {
       console.error(err);
@@ -53,7 +53,7 @@ function LoginPage() {
       setLoading(false);
     }
   };
-    if (localStorage.getItem("jwt_token") != undefined) return <Navigate to = "/dashboard" />
+    if (localStorage.getItem("jwt_token") != undefined) return <Navigate to = "/" />
 
 
   return (
