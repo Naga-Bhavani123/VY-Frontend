@@ -7,6 +7,7 @@ function Navbar() {
   const [showNotifications, setShowNotifications] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [timeDate, setTimeDate] = useState(new Date().toLocaleString());
+  const [profilePhoto, setProfilePhoto] = useState("");
 
   const handleLogout = () => {
     localStorage.removeItem("jwt_token");
@@ -96,7 +97,7 @@ function Navbar() {
             onClick={() => navigate("/profile")}
             title="Profile"
           >
-            👤
+            {profilePhoto? <img src = {profilePhoto}/>:<div>👤</div>}
           </div>
 
           {/* Logout */}

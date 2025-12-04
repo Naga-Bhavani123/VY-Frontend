@@ -4,6 +4,7 @@ import Components from "../ComponentsDashboard/index.jsx"
 import "./index.css"
 
 
+const BASE_URL = "https://vy-backend.onrender.com"
 
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
             body: JSON.stringify({mode: attendanceOptions})
           }
 
-          const response = await fetch("https://vy-backend.onrender.com/employee/attendance/mark-today", options); 
+          const response = await fetch(`${BASE_URL}/employee/attendance/mark-today`, options); 
           
           const responsedData = await response.json(); 
 
@@ -66,7 +67,7 @@ const Home = () => {
             },
         }
 
-          const response = await fetch("https://vy-backend.onrender.com/employee/attendance/status", options); 
+          const response = await fetch(`${BASE_URL}/employee/attendance/status`, options); 
           
           const responsedData = await response.json(); 
 

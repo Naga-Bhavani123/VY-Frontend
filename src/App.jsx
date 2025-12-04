@@ -26,9 +26,7 @@ function App() {
       <Route path = "/attendance" element = {<ProtectedRoute><Attendance/></ProtectedRoute>}/>
       <Route path = "/admin/create-employee" element = {<ProtectedRoute><AddingEmployee/></ProtectedRoute>} />
       <Route path = "/admin/employees" element = {<ProtectedRoute><AllEmployees/></ProtectedRoute>} />
-       <Route
-    path="/policies"
-    element={
+       <Route path="/policies" element={
       <ProtectedRoute>
         <HrPolicies />
       </ProtectedRoute>

@@ -49,7 +49,7 @@ const Compensation = () => {
       setLoading(true);
       setMessage("");
 
-      const url = `https://vy-backend.onrender.com/employee/compensation/month?year=${year}&month=${month}`;
+      const url = `http://localhost:3000/employee/compensation/month?year=${year}&month=${month}`;
 
       const res = await fetch(url, {
         headers: {
@@ -90,7 +90,7 @@ const Compensation = () => {
       setDownloading(true);
       setMessage("");
 
-      const url = `https://vy-backend.onrender.com/employee/compensation/payslip/pdf?year=${year}&month=${month}`;
+      const url = `http://localhost:3000/employee/compensation/payslip/pdf?year=${year}&month=${month}`;
 
       const res = await fetch(url, {
         headers: {

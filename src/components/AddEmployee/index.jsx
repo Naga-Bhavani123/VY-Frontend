@@ -50,12 +50,13 @@ const AdminCreateEmployee = () => {
     }
     const response = await fetch("https://vy-backend.onrender.com/employee/next-id", options);
      if (response.ok) {
+       console.log(response)
         const data = await response.json()
         setEmployeeId(data.employeeId);
       }
   }
   
-
+    
   
   useEffect (() => {
     gettingOne()

@@ -1,16 +1,43 @@
-# React + Vite
+# VY Payroll System – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A role-based payroll system built using **React.js** with secure authentication and employee dashboard features.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##  Features
 
-## React Compiler
+###  Authentication & Routing
+- Register & Login pages (role-based access)
+- JWT-based authentication
+- Protected Routes using `<Navigate />` in React Router
+- Role-based dashboard (Admin / Employee)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+###  Employee Dashboard
+- Mark **Daily Attendance** (Check-In / Check-Out)
+- Attendance Calendar (Month-wise view)
+- Salary Compensation module (Net pay calculation)
+- Download **Payslips (PDF format)**
+- HR Policies & Referral Section
+- Profile Page (Can update contact & upload photo)
 
-## Expanding the ESLint configuration
+###  Admin Dashboard
+- Create new employee (fetch next Employee ID automatically)
+- Get all employees (search/filter)
+- Edit employee details
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Used
+| Technology | Purpose |
+|------------|---------|
+| React.js | UI & Components |
+| React Router | Routing & Navigation |
+| JWT | Authentication |
+| Fetch API | API calls to backend |
+| CSS / Flex | Styling |
+| Vercel | Deployment |
+
+---
+
+##  API Base URL
+https://vy-backend.onrender.com

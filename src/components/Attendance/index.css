@@ -11,8 +11,9 @@
 .att-page {
   background-color: #dcfce7;
   min-height: 100vh;
-  padding: 80px 32px 32px;
+  padding: 96px 24px 32px; /* give room for fixed navbar */
   font-family: system-ui, sans-serif;
+  box-sizing: border-box;
 }
 
 /* HEADER ROW */
@@ -20,7 +21,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
   margin-bottom: 14px;
+  flex-wrap: wrap;
 }
 
 .att-title {
@@ -34,11 +37,11 @@
 .att-filters {
   display: flex;
   gap: 10px;
+  align-items: center;
 }
 
 .att-select {
-      color: var(--vy-text-main);
-
+  color: var(--vy-text-main);
   padding: 8px 10px;
   border-radius: 8px;
   border: 1px solid #cbd5e1;
@@ -51,7 +54,7 @@
   background-color: #ffffff;
   border-radius: 12px;
   padding: 16px;
-  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.15);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
 }
 
 /* messages */
@@ -79,10 +82,13 @@
   margin-bottom: 10px;
 }
 
-/* WEEKDAYS ROW */
+/* WEEKDAYS ROW
+   We'll keep this fixed width grid and make the whole calendar horizontally scrollable
+   on narrow screens so weekday labels always align with day cells.
+*/
 .att-weekdays-row {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   border-bottom: 1px solid #e5e7eb;
   padding-bottom: 6px;
   margin-bottom: 6px;
@@ -92,32 +98,53 @@
   text-align: center;
   font-size: 12px;
   color: var(--vy-text-muted);
-  font-weight: 500;
+  font-weight: 600;
+  padding: 6px 4px;
 }
 
-/* DAYS GRID */
+/* CALENDAR WRAPPER (enable scrolling on small screens) */
+.att-days-wrapper {
+  overflow-x: auto;         /* horizontal scroll on small screens */
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;      /* space below grid for scroll */
+}
+
+/* DAYS GRID
+   Keep 7 columns, but allow minimum column width so the grid can be scrolled horizontally
+   if there's not enough space.
+*/
 .att-days-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-auto-rows: 90px;
+  grid-template-columns: repeat(7, minmax(120px, 1fr)); /* each column at least 120px */
+  grid-auto-rows: 100px;
+  gap: 0;
+  min-width: 840px; /* 7 * 120 = 840 — ensures horizontal scroll on narrow screens */
 }
 
 /* SINGLE DAY CELL */
 .att-day-cell {
   border-right: 1px solid #f3f4f6;
   border-bottom: 1px solid #f3f4f6;
-  padding: 6px 6px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #ffffff;
-  font-size: 12px;
+  font-size: 13px;
+  box-sizing: border-box;
+  transition: background-color 0.12s ease, transform 0.08s ease;
 }
 
+.att-day-cell:hover {
+  transform: translateY(-2px);
+}
+
+/* Empty placeholder cells */
 .att-day-cell.empty {
   background-color: #f9fafb;
 }
 
+/* Day number (top right) */
 .att-day-number-row {
   display: flex;
   justify-content: flex-end;
@@ -125,7 +152,7 @@
 
 .att-day-number {
   font-size: 13px;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--vy-text-main);
 }
 
@@ -137,17 +164,18 @@
 
 .att-status-pill {
   display: inline-block;
-  padding: 2px 6px;
+  padding: 3px 8px;
   border-radius: 999px;
   font-size: 11px;
+  font-weight: 600;
 }
 
 /* TIMES */
 .att-times-row {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  font-size: 11px;
+  gap: 4px;
+  font-size: 12px;
   color: var(--vy-text-muted);
 }
 
@@ -157,7 +185,7 @@
 }
 
 .att-day-cell.absent {
-  background-color: #fef2f2;
+  background-color: #fff1f2;
 }
 
 .att-day-cell.off {
@@ -186,6 +214,7 @@
   gap: 16px;
   font-size: 12px;
   color: var(--vy-text-muted);
+  align-items: center;
 }
 
 .att-legend-dot {
@@ -193,20 +222,12 @@
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  margin-right: 4px;
+  margin-right: 6px;
 }
 
-.present-dot {
-  background-color: #22c55e;
-}
-
-.absent-dot {
-  background-color: #ef4444;
-}
-
-.off-dot {
-  background-color: #9ca3af;
-}
+.present-dot { background-color: #22c55e; }
+.absent-dot  { background-color: #ef4444; }
+.off-dot     { background-color: #9ca3af; }
 
 /* Loader dots (reuse your existing style) */
 .vy-dots-loader {
@@ -222,33 +243,50 @@
   animation: vy-dot-bounce 0.6s infinite alternate;
 }
 
-.vy-dot:nth-child(2) {
-  animation-delay: 0.15s;
-}
+.vy-dot:nth-child(2) { animation-delay: 0.15s; }
+.vy-dot:nth-child(3) { animation-delay: 0.3s; }
 
-.vy-dot:nth-child(3) {
-  animation-delay: 0.3s;
-}
+@keyframes vy-dot-bounce { to { transform: translateY(-4px); } }
 
-@keyframes vy-dot-bounce {
-  to {
-    transform: translateY(-4px);
-  }
-}
+/* -------------------
+   Responsive tweaks
+   ------------------- */
 
-/* Responsive */
-@media (max-width: 768px) {
-  .att-page {
-    padding: 80px 12px 20px;
-  }
-
+/* Medium screens (tablet) */
+@media (max-width: 1024px) {
   .att-days-grid {
+    grid-template-columns: repeat(7, minmax(100px, 1fr));
+    min-width: 700px;
+    grid-auto-rows: 90px;
+  }
+  .att-day-cell { padding: 7px; font-size: 12px; }
+  .att-title { font-size: 20px; }
+}
+
+/* Small screens (phone) — keep 7 columns but allow horizontal scroll */
+@media (max-width: 640px) {
+  .att-page { padding: 84px 12px 20px; }
+  .att-header-row { gap: 8px; }
+  .att-select { padding: 6px 8px; font-size: 13px; }
+  .att-days-grid {
+    grid-template-columns: repeat(7, minmax(92px, 1fr));
+    min-width: 644px;
     grid-auto-rows: 80px;
   }
+  .att-day-cell { padding: 6px; font-size: 12px; }
+  .att-weekday-cell { font-size: 11px; padding: 4px 6px; }
+  .att-legend { font-size: 12px; gap: 10px; }
+}
 
-  .att-header-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+/* Very narrow phones */
+@media (max-width: 420px) {
+  .att-days-grid {
+    grid-template-columns: repeat(7, minmax(80px, 1fr));
+    min-width: 560px;
+    grid-auto-rows: 72px;
   }
+  .att-day-cell { padding: 6px 6px; }
+  .att-status-pill { padding: 2px 6px; font-size: 10px; }
+  .att-times-row { font-size: 11px; }
+  .att-title { font-size: 18px; }
 }

@@ -1,105 +1,320 @@
-.profile-page {
-  background-color: #dcfce7;
+:root {
+  --vy-green-dark: #166534;
+  --vy-green-main: #22c55e;
+  --vy-green-light: #dcfce7;
+  --vy-text-main: #0f172a;
+  --vy-text-muted: #6b7280;
+  --vy-error: #ef4444;
+}
+
+/* Page wrapper */
+.vy-profile-page {
   min-height: 100vh;
-  padding: 90px 16px 24px; /* space under navbar */
+  background-color: #dcfce7;
+  padding-top: 80px; /* navbar space */
   display: flex;
   justify-content: center;
   align-items: flex-start;
   font-family: system-ui, sans-serif;
 }
 
-.profile-card {
-  width: 100%;
-  max-width: 720px;
+/* Loader & message */
+.vy-profile-loader {
+  margin-top: 40px;
+  font-size: 14px;
+  color: var(--vy-text-muted);
+}
+
+.vy-profile-message {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.vy-profile-success {
+  background-color: var(--vy-green-light);
+  color: var(--vy-green-dark);
+  border: 1px solid var(--vy-green-main);
+}
+
+.vy-profile-error {
+  background-color: #fee2e2;
+  color: var(--vy-error);
+  border: 1px solid #fecaca;
+}
+
+/* Card */
+.vy-profile-card {
   background-color: #ffffff;
+  margin-top: 40px;
+  width: 100%;
+  max-width: 700px;
+  padding: 24px 28px 22px;
   border-radius: 18px;
-  padding: 24px 24px 20px;
-  box-shadow: 0 12px 30px rgba(34, 197, 94, 0.25);
-  border: 1px solid #e5e7eb;
+  box-shadow: 0 18px 40px rgba(15, 118, 110, 0.25);
+  border: 1px solid rgba(148, 163, 184, 0.25);
 }
 
-.profile-header {
+/* Header */
+.vy-profile-header {
   display: flex;
-  gap: 18px;
   align-items: center;
-  margin-bottom: 20px;
+  gap: 18px;
+  margin-bottom: 18px;
 }
 
-.profile-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #22c55e, #166534);
+.vy-profile-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background-color: var(--vy-green-main);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: #ffffff;
+  font-weight: 800;
   font-size: 26px;
-  font-weight: 700;
   overflow: hidden;
 }
 
-.profile-avatar img {
+.vy-profile-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.profile-name {
+.vy-profile-main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.vy-profile-name {
   margin: 0;
   font-size: 22px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--vy-text-main);
 }
 
-.profile-role {
-  margin: 2px 0;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.profile-id {
+.vy-profile-role {
   margin: 0;
   font-size: 13px;
+  color: var(--vy-text-muted);
+}
+
+.vy-profile-id {
+  margin: 0;
+  font-size: 13px;
+  color: var(--vy-text-muted);
+}
+
+.vy-profile-id span {
+  font-weight: 600;
+  color: var(--vy-green-dark);
+}
+
+/* Form & fields */
+.vy-profile-form {
+  margin-top: 10px;
+}
+
+.vy-profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 16px;
+}
+
+.vy-profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vy-full-width {
+  grid-column: 1 / -1;
+}
+
+.vy-profile-field label {
+  font-size: 13px;
+  color: var(--vy-text-muted);
+  font-weight: 500;
+}
+
+.vy-profile-field input {
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  outline: none;
+  color: var(--vy-text-main);
+  background-color: #f9fffb;
+}
+
+.vy-profile-field input:focus {
+  border-color: var(--vy-green-main);
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+}
+
+.vy-readonly-input {
+  background-color: #f3f4f6;
   color: #4b5563;
 }
 
-.profile-details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 12px;
+/* Hint text */
+.vy-field-hint {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--vy-text-muted);
 }
 
-.profile-field label {
-  font-size: 12px;
-  color: #6b7280;
+/* Actions */
+.vy-profile-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.profile-field p {
-  margin: 2px 0 0;
+.vy-profile-save-btn {
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--vy-green-main);
+  color: #ffffff;
+  font-weight: 600;
   font-size: 14px;
-  font-weight: 500;
-  color: #111827;
+  cursor: pointer;
 }
 
-/* Loader & error */
-
-.profile-loader,
-.profile-error {
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 14px 16px;
-  max-width: 480px;
-  text-align: center;
-  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.25);
-  border: 1px solid #e5e7eb;
+.vy-profile-save-btn:hover:not(:disabled) {
+  background-color: var(--vy-green-dark);
 }
 
-.profile-loader {
-  color: #166534;
+.vy-profile-save-btn:disabled {
+  opacity: 0.75;
+  cursor: not-allowed;
 }
 
-.profile-error {
-  color: #b91c1c;
+/* Responsive */
+@media (max-width: 768px) {
+  .vy-profile-card {
+    margin: 24px 12px 18px;
+    padding: 18px 16px 16px;
+  }
+
+  .vy-profile-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vy-profile-header {
+    align-items: flex-start;
+  }
+}
+
+/* ============================= */
+/*     Profile Photo Upload      */
+/* ============================= */
+
+.vy-profile-avatar {
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s ease;
+  border: 3px solid transparent;
+  height: 150px;
+  width:150px;
+  
+}
+
+.vy-profile-avatar:hover {
+  border-color: var(--vy-green-main);
+  transform: scale(1.05);
+}
+
+/* Upload hint on hover */
+.vy-profile-avatar::after {
+  content: "Upload Photo";
+  position: absolute;
+  bottom: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--vy-green-main);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+}
+
+.vy-profile-avatar:hover::after {
+  opacity: 1;
+}
+
+/* Hidden input (file upload) */
+#vy-photo-input {
+  display: none;
+}
+
+/* Avatar wrapper to position overlay */
+/* Avatar wrapper to position overlay */
+.vy-profile-avatar-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  cursor: pointer;
+}
+
+/* Light green background when NO photo */
+.vy-profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(22, 197, 94, 0.15); /* light green */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Upload text shown when no photo exists */
+.vy-upload-placeholder {
+  color: #22c55e;
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* Photo covers the circle */
+.vy-profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hover overlay ONLY when photo exists */
+.vy-profile-avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.vy-profile-avatar-wrapper:hover .vy-profile-avatar-overlay {
+  opacity: 1;
+}
+
+/* Upload text on hover */
+.vy-upload-btn {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
 }
