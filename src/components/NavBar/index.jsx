@@ -9,10 +9,21 @@ function Navbar() {
   const [timeDate, setTimeDate] = useState(new Date().toLocaleString());
   const [profilePhoto, setProfilePhoto] = useState("");
 
+  const jwt = localStorage.getItem("jwt_token");
   const handleLogout = () => {
     localStorage.removeItem("jwt_token");
     navigate("/login");
   };
+
+  useEffect(() => {
+      const fetching = async () => {
+        const response = await fetch("https://vy-backend.onrender.com/employee/profils", {
+          headers:{
+            Authorization
+          }
+        })
+      }
+  }, [])
 
   const toggleNotifications = () => {
     setShowNotifications((prev) => !prev);
